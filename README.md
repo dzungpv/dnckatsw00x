@@ -207,7 +207,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state }}&#x22;
+    value_template: "{{ value_json.state }}"
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/set"
 ```
 #### 2 button
@@ -219,7 +219,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_left }}&#x22;
+    value_template: "{{ value_json.state_left }}"
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/left/set"
 # zigbee 2G R   
   - platform: "mqtt"
@@ -228,7 +228,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_right }}&#x22;
+    value_template: "{{ value_json.state_right }}"
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/right/set"
 ```
 #### 3 button
@@ -240,7 +240,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_left }}&#x22;
+    value_template: "{{ value_json.state_left }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/left/set"
  # zigbee 3G Center      
   - platform: "mqtt"
@@ -249,7 +249,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_center }}&#x22;
+    value_template: "{{ value_json.state_center }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/center/set"   
 # zigbee 3G R   
   - platform: "mqtt"
@@ -258,7 +258,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_right }}&#x22;
+    value_template: "{{ value_json.state_right }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/right/set"
 ```
 #### 4 button
@@ -270,7 +270,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_top_left }}&#x22;
+    value_template: "{{ value_json.state_top_left }}"
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/top_left/set"
 # zigbee 4G TR   
   - platform: "mqtt"
@@ -279,7 +279,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_top_right }}&#x22;
+    value_template: "{{ value_json.state_top_right }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/top_right/set"  
  # zigbee 4G BL      
   - platform: "mqtt"
@@ -288,7 +288,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_bot_left }}&#x22;
+    value_template: "{{ value_json.state_bot_left }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_left/set"
 # zigbee 4G BR   
   - platform: "mqtt"
@@ -297,6 +297,6 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: &#x22;{{ value_json.state_bot_right }}&#x22;
+    value_template: "{{ value_json.state_bot_right }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_right/set" 
 ```
