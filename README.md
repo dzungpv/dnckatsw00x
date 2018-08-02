@@ -1,6 +1,7 @@
 ## Ligh Switch base on Samplight Z-Stack Home 1.2.2a for CC2530, 2538 SOC
 
 I use this board as light switch/high load switch, for a long distant normal one could not reach and I can choose any high current relay and contactor for very high load.
+Support up to 4 relay and button control.
 
 The module include an external antena can reach 200m distant: *Z-0001 by WEBEE*.
 
@@ -13,7 +14,7 @@ The module include an external antena can reach 200m distant: *Z-0001 by WEBEE*.
 
 #### Setup the relay/Contactor, and button:
 
-- Connect relay 1 control pin with P1.0, relay 2 with P1.1, relay 3 with P1.2, relay 4 with P1.4, 
+- Connect relay 1 control pin with P1.0, relay 2 with P1.1, relay 3 with P1.2, relay 4 with P1.3, 
 - Connect your button 1 with P0.0, button 2 with P0.1, button 3 with P0.4, button 4 with P0.5
 
 #### Prebuild hex:
@@ -23,7 +24,9 @@ Version with 1 relay and button ready to flash with your tool download it here: 
 #### Support gateway/hub/software:
 
 Please check: 
+
 [Zigbee2Mqtt](https://github.com/Koenkk/zigbee2mqtt)
+
 [Home Assistant](https://www.home-assistant.io/)
 
 
@@ -193,3 +196,107 @@ Add report code
 You can see 2 project i learn from here https://github.com/presslab-us/ZigBee_WDHA-12 and https://github.com/presslab-us/ZigBee_OpenEVSE
 #### Step 4:
 Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and finally build and download to your module
+
+### Configuration for Home Assistant
+
+#### 1 button
+```
+  - platform: "mqtt"
+    name: DNCKAT_S001
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/set"
+```
+#### 2 button
+```
+# zigbee 2G L      
+  - platform: "mqtt"
+    name: "DNCKAT_S002 Left"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_left }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/left/set"
+# zigbee 2G R   
+  - platform: "mqtt"
+    name: "DNCKAT_S002 Right"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_right }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/right/set"
+```
+#### 3 button
+```
+# zigbee 3G L      
+  - platform: "mqtt"
+    name: "DNCKAT_S003 Left"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_left }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/left/set"
+ # zigbee 3G Center      
+  - platform: "mqtt"
+    name: "DNCKAT_S003 Center"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_center }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/center/set"   
+# zigbee 3G R   
+  - platform: "mqtt"
+    name: "DNCKAT_S003 Right"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_right }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/right/set"
+```
+#### 4 button
+```
+ #zigbee 4G TL      
+  - platform: "mqtt"
+    name: "DNCKAT_S004 Top Left"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_top_left }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/top_left/set"
+# zigbee 4G TR   
+  - platform: "mqtt"
+    name: "DNCKAT_S004 Top Right"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_top_right }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/top_right/set"  
+ # zigbee 4G BL      
+  - platform: "mqtt"
+    name: "DNCKAT_S004 Bottom Left"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_bot_left }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_left/set"
+# zigbee 4G BR   
+  - platform: "mqtt"
+    name: "DNCKAT_S004 Bottom Right"
+    state_topic: "zigbee2mqtt/FRIENDLY_NAME"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_off: "OFF"
+    payload_on: "ON"
+    value_template: "{{ value_json.state_bot_right }}"
+    command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_right/set" 
+```
