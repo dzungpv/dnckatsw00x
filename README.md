@@ -262,7 +262,7 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/right/set"
 ```
 #### 4 button
-```
+```javascript
  #zigbee 4G TL      
   - platform: "mqtt"
     name: "DNCKAT_S004 Top Left"
@@ -297,6 +297,6 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
-    value_template: "{{ value_json.state_bot_right }}"
+    value_template: \"{{ value_json.state_bot_right }}\"
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_right/set" 
 ```
