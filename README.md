@@ -19,7 +19,7 @@ The module include an external antena can reach 200m distant: *Z-0001 by WEBEE*.
 
 #### Prebuild hex:
 
-Version with 1 relay and button ready to flash with your tool download it here: [dnckatsw00x.hex](https://raw.githubusercontent.com/dzungpv/dnckatsw00x/master/dnckatsw00x.hex)
+Version with 1 relay and button ready to flash with your tool download it here: [dnckatsw00x.hex](https://raw.githubusercontent.com/dzungpv/dnckatsw00x/master/dnckatsw00x.hex) and use channel 15
 
 #### Support gateway/hub/software:
 
