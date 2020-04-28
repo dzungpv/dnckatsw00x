@@ -300,3 +300,15 @@ Disable ZCL_EZMODE and HOLD_AUTO_START build tag by add 'x' before each, and fin
     value_template: "{{ value_json.state_bot_right }}";
     command_topic: "zigbee2mqtt/FRIENDLY_NAME/bot_right/set" 
 ```
+## Dimmer version 1 gang (DC only):
+### Build it from scratch:
+Follow all step above with additional:
+In Step 2 change 
+```
+const uint8 zclSampleLight_ModelId[] = { 11, 'D','N','C','K','A','T','_','D','0','0','1' };
+```
+Step 4: Enable ZCL_LEVEL_CTRL by remove x from xZCL_LEVEL_CTRL buil tag
+And wire led output as dimmable source.
+
+
+
